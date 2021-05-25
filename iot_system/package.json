@@ -2,9 +2,9 @@
   "name": "4me307",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "controller.js",
   "scripts": {
-    "start":"node index.js",
+    "start": "node controller.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/rema-salman/4ME307#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "firebase": "^8.6.2"
   }
 }

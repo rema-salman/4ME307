@@ -1,2 +1,1 @@
-# Project for course 4ME307
-
+# IOT sytem: of an IOT smart backyard farm
