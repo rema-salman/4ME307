@@ -1,1 +1,1 @@
-# IOT Project: smart backyard farm
+# IOT sytem: of an IOT smart backyard farm
