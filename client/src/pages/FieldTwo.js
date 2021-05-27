@@ -45,7 +45,7 @@ function FieldTwo() {
       for (let id in weather_station_info) {
         weather_readings_list.push(weather_station_info[id]);
       }
-      setEnvironmentReadings(weather_readings_list);
+      setEnvironmentReadings(weather_readings_list.reverse());
       console.log(environmentalReadings);
     });
   }, []);
@@ -55,13 +55,21 @@ function FieldTwo() {
       <h3 className="text-center">Field Two</h3>
       <Row className="my-5 align-items-center">
         <Col>
-          <MoistureCard
-            moistureLevels={soilMoisture}
-            fieldReadingDate={fieldReadingDate}
-          />
+          {soilMoisture && fieldReadingDate ? (
+            <MoistureCard
+              moistureLevels={soilMoisture}
+              fieldReadingDate={fieldReadingDate}
+            />
+          ) : (
+            ""
+          )}
         </Col>
         <Col>
-          <IrrigationCard irrigationStatus={irrigationStatus} />
+          {irrigationStatus ? (
+            <IrrigationCard irrigationStatus={irrigationStatus} />
+          ) : (
+            ""
+          )}
         </Col>
       </Row>
       <EnvironmentTable environmentalReadings={environmentalReadings} />

@@ -1,7 +1,6 @@
 import { Table } from "react-bootstrap";
 
 function EnvironmentTable({ environmentalReadings }) {
-  console.log(environmentalReadings);
   return (
     <Table responsive>
       <thead>

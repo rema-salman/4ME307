@@ -30,9 +30,9 @@ function FieldOne() {
       console.log(soilMoisture);
     });
 
-    // Getting the irrigationStatus (motor one)
-    const motorOneRef = firebasedDB.ref("irrigation_status/motor_one");
-    motorOneRef.on("value", (snapshot) => {
+    // Getting the irrigationStatus (motor two)
+    const motorTwoRef = firebasedDB.ref("irrigation_status/motor_one");
+    motorTwoRef.on("value", (snapshot) => {
       setIrrigationStatus(snapshot.val().MOTOR_STATUS);
       console.log(irrigationStatus);
     });
@@ -45,7 +45,7 @@ function FieldOne() {
       for (let id in weather_station_info) {
         weather_readings_list.push(weather_station_info[id]);
       }
-      setEnvironmentReadings(weather_readings_list);
+      setEnvironmentReadings(weather_readings_list.reverse());
       console.log(environmentalReadings);
     });
   }, []);
@@ -55,13 +55,23 @@ function FieldOne() {
       <h3 className="text-center">Field One</h3>
       <Row className="my-5 align-items-center">
         <Col>
-          <MoistureCard moistureLevels={soilMoisture} fieldReadingDate={fieldReadingDate} />
+          {soilMoisture && fieldReadingDate ? (
+            <MoistureCard
+              moistureLevels={soilMoisture}
+              fieldReadingDate={fieldReadingDate}
+            />
+          ) : (
+            ""
+          )}
         </Col>
         <Col>
-          <IrrigationCard irrigationStatus={irrigationStatus} />
+          {irrigationStatus ? (
+            <IrrigationCard irrigationStatus={irrigationStatus} />
+          ) : (
+            ""
+          )}
         </Col>
       </Row>
-
       <EnvironmentTable environmentalReadings={environmentalReadings} />
     </div>
   );

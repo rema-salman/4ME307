@@ -1,14 +1,11 @@
-import React from "react";
+import { useState } from "react";
 import { Card, Button } from "react-bootstrap";
 
-function MoistureCard({ moistureLevels, fieldReadingDate }) {
- 
-  const viewModal =()=>{
+import ChartModal from "./ChartModal";
 
-    
-  }
- 
- 
+function MoistureCard({ moistureLevels, fieldReadingDate }) {
+  const [modalShow, setModalShow] = useState(false);
+
   return (
     <Card>
       <Card.Img
@@ -24,8 +21,16 @@ function MoistureCard({ moistureLevels, fieldReadingDate }) {
             {moistureLevels[moistureLevels.length - 1]}%
           </Card.Title>
         </div>
-        <Button variant="success" onClick={()=>viewModal()}>View more...</Button>
+        <Button variant="success" onClick={() => setModalShow(true)}>
+          View levels chart
+        </Button>
       </Card.Body>
+      <ChartModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        moistureLevels={moistureLevels}
+        fieldReadingDate={fieldReadingDate}
+      />
     </Card>
   );
 }
