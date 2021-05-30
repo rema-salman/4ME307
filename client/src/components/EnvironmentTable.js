@@ -1,4 +1,5 @@
 import { Table } from "react-bootstrap";
+import moment from "moment";
 
 function EnvironmentTable({ environmentalReadings }) {
   return (
@@ -17,7 +18,7 @@ function EnvironmentTable({ environmentalReadings }) {
         {environmentalReadings.map((item) => (
           <tr key={item.date}>
             {Object.values(item).map((val) => (
-              <td>{val}</td>
+              <td>{isNaN(val) ? moment(val).format("lll") : val}</td>
             ))}
           </tr>
         ))}

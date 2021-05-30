@@ -49,11 +49,9 @@ function checkMoistureAndWater() {
     //--------------- Low moisture of field two ---------------
     if (
       soil_moisture_list[soil_moisture_list.length - 1].field_2.soil_moisture <=
-      30
+      50
     ) {
-      fields_station.changeIrrigationStatus(
-        FirebaseDB.ref("irrigation_status/motor_two")
-      );
+      changeIrrigationStatus(FirebaseDB.ref("irrigation_status/motor_two"));
       // pushes a new date whenever irrigation is on
       FirebaseDB.ref("irrigation_status_track/motor_two")
         .push()
