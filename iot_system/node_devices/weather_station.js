@@ -1,4 +1,4 @@
-const FirebaseDB = require("../intelligence_server/firebase");
+const FirebaseDB = require("../firebase");
 /**
  * Illustrates virtual environmental sensors.
  * The generated data is in percentage(%) for each field,

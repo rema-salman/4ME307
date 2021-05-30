@@ -1,4 +1,4 @@
-const FirebaseDB = require("../intelligence_server/firebase");
+const FirebaseDB = require("../firebase");
 
 /**
  * Illustrates virtual soil moisture sensors.
