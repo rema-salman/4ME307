@@ -5,7 +5,7 @@ import EnvironmentTable from "../components/EnvironmentTable";
 import MoistureCard from "../components/MoistureCard";
 import IrrigationCard from "../components/IrrigationCard";
 
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Alert } from "react-bootstrap";
 
 function FieldTwo() {
   const [environmentalReadings, setEnvironmentReadings] = useState([]);
@@ -65,10 +65,12 @@ function FieldTwo() {
           )}
         </Col>
         <Col>
-          {irrigationStatus ? (
+          {irrigationStatus === "OFF" ? (
             <IrrigationCard irrigationStatus={irrigationStatus} />
           ) : (
-            ""
+            <Alert variant="success">
+              <h3>Aww yeah, the motor of this field start working</h3>
+            </Alert>
           )}
         </Col>
       </Row>
