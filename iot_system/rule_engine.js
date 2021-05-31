@@ -1,6 +1,6 @@
 const FirebaseDB = require("./firebase");
 
-function setIrrigationStatus() {
+function resetIrrigationStatus() {
   //  Publish data to cloud
   FirebaseDB.ref("irrigation_status/motor_one").set({ MOTOR_STATUS: "OFF" });
   FirebaseDB.ref("irrigation_status/motor_two").set({ MOTOR_STATUS: "OFF" });
@@ -29,7 +29,7 @@ function checkMoistureAndWater() {
       console.log(soil_moisture_list);
     }
     // set both motors to off before the check
-    setIrrigationStatus();
+    resetIrrigationStatus();
     //--------------- Low moisture of field One ---------------
     if (
       soil_moisture_list[soil_moisture_list.length - 1].field_1.soil_moisture <=
